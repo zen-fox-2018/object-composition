@@ -2,6 +2,8 @@ const fs = require('fs')
 const PeanutButter = require('./PeanutButter')
 const ChocolateChip = require('./ChocolateChip')
 const OtherCookie = require('./OtherCookie')
+const PeanutButterCrumbled = require('./PeanutButterCrumbled')
+const ChocolateChipCrumbled = require('./ChocolateChipCrumbled')
 
 class CookieFactory {
 
@@ -17,9 +19,13 @@ class CookieFactory {
        cookies.push(new PeanutButter(type[0] , type[1].split(',')))
      } else if (type[0] == 'chocolate chip ') {
        cookies.push(new ChocolateChip(type[0], type[1].split(',')))
-     } else {
-       cookies.push(new OtherCookie(type[0], type[1].split(',')))
-     }
+     } else if(type[0] == 'chocolate chip crumbled '){
+       cookies.push(new ChocolateChipCrumbled(type[0], type[1].split(',')))
+     } else if(type[0] == 'peanut butter crumbled '){
+      cookies.push(new PeanutButterCrumbled(type[0], type[1].split(',')))
+    } else {
+      cookies.push(new OtherCookie(type[0], type[1].split(',')))
+    }
    });
     return cookies
   }
