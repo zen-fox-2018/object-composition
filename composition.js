@@ -1,19 +1,25 @@
 
+const Ingredients = require("./ingredients");
+
 class Cookie {
-    constructor(ingredients) {
+    constructor(name, materials) {
+        this.name = name
         this.status = "mentah";
-        this.bake(ingredients)
         this.ingredients = [];
+        this.raw = this.amountIngredients(materials)
     }
 
     bake() {
         this.status = "selesai dimasak"
-        // console.log("ini pasti ga masuk")
+    }
+    amountIngredients(materials) {
+        debugger;
+        console.log(materials)
     }
 }
 
-let cookies = new Cookie()
+let test = new Cookie()
 
-// console.log(cookies.bake())
+// test.amountIngredients()
 
 module.exports = Cookie

@@ -18,29 +18,27 @@ class CookieFactory {
 
             let splitted = element.split("=");
             let cookie = splitted[0].trim();
-            let amountOfIngredients = splitted[1];
 
             let create = null;
             
             if(cookie === "peanut butter") {
-                create = new PeanutButter(cookie, amountOfIngredients);
-                // console.log(amountOfIngredients, "=======")
+                // console.log(splitted[1])
+                create = new PeanutButter(cookie, splitted[1]);
             } else if (cookie === "chocolate chip") {
-                create = new ChocolateChip(cookie, amountOfIngredients);
+                create = new ChocolateChip(cookie, splitted[1]);
             } else if (cookie === "chocolate cheese") {
-                create = new OtherCookie(cookie, amountOfIngredients);
+                create = new OtherCookie(cookie, splitted[1]);
             } else if (cookie === "chocolate butter") {
-                create = new OtherCookie(cookie, amountOfIngredients);
+                create = new OtherCookie(cookie, splitted[1]);
             }
             result.push(create);
         });
-        // console.log(result)
         return result
     }
 
 }
 
 let batch_of_cookies = CookieFactory.create(readData);
-console.log(batch_of_cookies)
+// console.log(batch_of_cookies)
 
 module.exports = CookieFactory
