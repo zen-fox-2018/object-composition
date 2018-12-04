@@ -1,5 +1,5 @@
 const {Cookie, PeanutButter, ChocolateChip, OtherCookie, ChocolateChipCrumbled, PeanutButterCrumbled} =  require('./Cookie.js')
-const Ingredient =  require('./Ingredient.js')
+
 
 
 const fs = require('fs')
@@ -11,30 +11,20 @@ class CookieFactory {
       let optionsArr = options[i].split('=')
       let cookie = optionsArr[0].trim()
       let ingredients = optionsArr[1]
-      let ingredientArr = ingredients.split(',')
-      let ingredient = []
-      for (let j = 0; j < ingredientArr.length; j++) {
-        let ingredientSplit = ingredientArr[j].split(':')
-        let ingredientObj = {
-          name: ingredientSplit[1].trim(),
-          amount: ingredientSplit[0].trim(),
-        }
-        ingredient.push(new Ingredient(ingredientObj))
-      }
       if (cookie === 'peanut butter') {
-        cookies.push(new PeanutButter(cookie, ingredient))
+        cookies.push(new PeanutButter(ingredients))
       }
       else if (cookie === 'chocolate chip') {
-        cookies.push(new ChocolateChip(cookie, ingredient))
+        cookies.push(new ChocolateChip(ingredients))
       }
       else if (cookie === 'chocolate chip crumbled') {
-        cookies.push(new ChocolateChipCrumbled(cookie, ingredient))
+        cookies.push(new ChocolateChipCrumbled(ingredients))
       }
       else if (cookie === 'peanut butter crumbled') {
-        cookies.push(new PeanutButterCrumbled(cookie, ingredient))
+        cookies.push(new PeanutButterCrumbled(ingredients))
       }
       else {
-        cookies.push(new OtherCookie(cookie, ingredient))
+        cookies.push(new OtherCookie(cookie, ingredients))
       }
     }
   return cookies
