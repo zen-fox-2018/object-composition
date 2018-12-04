@@ -1,0 +1,4 @@
+peanut butter = 1 cup: flour, 2 cups: sugar, 2 cups: peanut butter, 1 cup: cinnamon
+chocolate chip = 1 cup: flour, 1 cup: sugar, 4 cups: chip
+chocolate cheese = 1 cup: flour, 1 cup: sugar, 1 cup: cinnamon
+chocolate butter =  1 cup: flour, 1 cup: coconutMilk, 1 cup: butter
