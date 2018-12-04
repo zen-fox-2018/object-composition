@@ -4,7 +4,6 @@ const Cookie = require("./composition");
 class OtherCookie extends Cookie {
     constructor(name, materials) {
         super(name, materials)
-        this.name = name
         this.chocolate_butter = 150
     }
 }

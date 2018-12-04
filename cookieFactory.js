@@ -11,7 +11,6 @@ class CookieFactory {
 
     static create (options) {
         let result = [];
-        let cookiesIngredients = []
         let data = options.split("\n");
 
         data.forEach(element => {
@@ -20,9 +19,8 @@ class CookieFactory {
             let cookie = splitted[0].trim();
 
             let create = null;
-            
+
             if(cookie === "peanut butter") {
-                // console.log(splitted[1])
                 create = new PeanutButter(cookie, splitted[1]);
             } else if (cookie === "chocolate chip") {
                 create = new ChocolateChip(cookie, splitted[1]);
@@ -36,9 +34,17 @@ class CookieFactory {
         return result
     }
 
+    // static cookieRecomendation(day, data) {
+    //     data.map(element => {
+    //         // console.log(element)
+
+    //     })
+    // }
 }
 
 let batch_of_cookies = CookieFactory.create(readData);
-// console.log(batch_of_cookies)
+let recomendation = CookieFactory.cookieRecomendation("Tuesday", batch_of_cookies)
+console.log(batch_of_cookies)
+// console.log(batch_of_cookies[1])
 
 module.exports = CookieFactory

@@ -2,8 +2,8 @@
 const Cookie = require("./composition")
 
 class ChocolateChip extends Cookie {
-    constructor(materials) {
-        super("chocolate chips", materials)
+    constructor(name, materials) {
+        super(name, materials)
         this.choc_chip_count = 200
     }
 }
