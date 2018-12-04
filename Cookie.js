@@ -31,4 +31,22 @@ class OtherCookie extends Cookie{
   }
 }
 
-module.exports = {Cookie, PeanutButter, ChocolateChip, OtherCookie}
+class ChocolateChipCrumbled {
+  constructor(cookieName, ingredients) {
+    this.name = cookieName
+    this.status = "mentah"
+    this.ingredients = ingredients
+    this.choc_chip_count = 150
+  }
+}
+
+class PeanutButterCrumbled {
+  constructor(cookieName, ingredients) {
+    this.name = cookieName
+    this.status = "mentah"
+    this.ingredients = ingredients
+    this.peanut_count = 75
+  }
+}
+
+module.exports = {Cookie, PeanutButter, ChocolateChip, OtherCookie, ChocolateChipCrumbled, PeanutButterCrumbled}

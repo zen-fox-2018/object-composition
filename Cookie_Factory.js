@@ -1,4 +1,4 @@
-const {Cookie, PeanutButter, ChocolateChip, OtherCookie} =  require('./Cookie.js')
+const {Cookie, PeanutButter, ChocolateChip, OtherCookie, ChocolateChipCrumbled, PeanutButterCrumbled} =  require('./Cookie.js')
 const Ingredient =  require('./Ingredient.js')
 
 
@@ -26,6 +26,12 @@ class CookieFactory {
       }
       else if (cookie === 'chocolate chip') {
         cookies.push(new ChocolateChip(cookie, ingredient))
+      }
+      else if (cookie === 'chocolate chip crumbled') {
+        cookies.push(new ChocolateChipCrumbled(cookie, ingredient))
+      }
+      else if (cookie === 'peanut butter crumbled') {
+        cookies.push(new PeanutButterCrumbled(cookie, ingredient))
       }
       else {
         cookies.push(new OtherCookie(cookie, ingredient))
