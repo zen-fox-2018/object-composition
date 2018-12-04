@@ -2,13 +2,24 @@ const fs = require('fs')
 const PeanutButter = require('./PeanutButter.js')
 const ChocholateChip = require('./ChocholateChip.js')
 const OtherCookie = require('./OtherCookie.js')
-const Ingredient = require('./Ingredient')
+const Ingredient = require('./Ingredient.js')
 
 class CookieFactory {
     static create(options) {
         var data = fs.readFileSync(options, "utf-8").split("\n")
         // console.log(data)
         let result = []
+        // array.forEach(element => {
+            
+        // });
+        // element => {
+            
+        // }
+        // array.forEach(element ,function(element) {
+            
+        //     return element
+        // })
+
         data.forEach(kue => {
             // console.log(kue)
             kue = kue.split(' = ')
@@ -22,17 +33,18 @@ class CookieFactory {
                 return {name: e[1], amount: e[0]}
                
             })
-            console.log(objIngredient)
-            let kueIngred = objIngredient.map(e =>{
-                return new Ingredient(e)
-                //nama objek
-            })
+            // console.log(objIngredient)
+            // let kueIngred = objIngredient.map(e =>{
+            //     return new Ingredient(e)
+            //     //nama objek
+            // })
+            // console.log(kueIngred)
             if(namaKue == 'peanut butter'){
-                result.push(new PeanutButter(namaKue, kueIngred))
+                result.push(new PeanutButter(namaKue, objIngredient))
             } else if(namaKue == 'chocolate chips'){
-                result.push(new ChocholateChip(namaKue, kueIngred))
+                result.push(new ChocholateChip(namaKue, objIngredient))
             }else{
-                result.push(new OtherCookie(namaKue, kueIngred))
+                result.push(new OtherCookie(namaKue, objIngredient))
             }
             //validasi biasa masukin isi 2 parameter nama dan ingredient
            
