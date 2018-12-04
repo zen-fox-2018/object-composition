@@ -1,9 +1,11 @@
 "use strict"
+const Ingredient = require('./Ingredient.js');
+
 class Cookie {
   constructor (name, ingredients) {
     this.name = name;
     this.status = "mentah";
-    this.ingredients = ingredients;
+    this.ingredients = this.makeIngedients(ingredients);
     this.has_sugar = false;
     this.checkSugar();
   }
@@ -18,6 +20,16 @@ class Cookie {
         this.has_sugar = true;
       }
     });
+  }
+
+  makeIngedients (ingredients) {
+    let tempReceipt = ingredients.split(', ');
+    let ingredientsResult = []
+    tempReceipt.forEach( e => {
+      let ingredient = e.split(' : ');
+      ingredientsResult.push(new Ingredient({name : ingredient[1], amount : ingredient[0]}));
+    });
+    return ingredientsResult;
   }
 }
 

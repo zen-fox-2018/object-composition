@@ -6,7 +6,6 @@ const PeanutButterCrumbled = require ('./PeanutButterCrumbled.js');
 const ChocolateChip = require ('./ChocolateChip.js');
 const PeanutButter = require ('./PeanutButter.js');
 const OtherCookie = require ('./OtherCookie.js');
-const Ingredient = require('./Ingredient.js');
 
 class CookieFactory {
   constructor () {
@@ -18,22 +17,16 @@ class CookieFactory {
     let cookiesList = [];
     optionsList.forEach( e => {
       let list = e.split(' = ');
-      let receipt = list[1].split(', ');
-      let listIngredients = [];
-      receipt.forEach( e => {
-        let ingredient = e.split(' : ');
-        listIngredients.push(new Ingredient({name : ingredient[1], amount : ingredient[0]}));
-      });
       if (list[0] === 'peanut butter') {
-        cookie = new PeanutButter(list[0], listIngredients);
+        cookie = new PeanutButter(list[0], list[1]);
       } else if(list[0] === 'chocolate chip') {
-        cookie = new ChocolateChip(list[0], listIngredients);
+        cookie = new ChocolateChip(list[0], list[1]);
       } else if(list[0] === 'chocolate chip crumbled') {
-        cookie = new ChocolateChipCrumbled(list[0], listIngredients);
+        cookie = new ChocolateChipCrumbled(list[0], list[1]);
       } else if(list[0] === 'peanut butter crumbled') {
-        cookie = new PeanutButterCrumbled(list[0], listIngredients);
+        cookie = new PeanutButterCrumbled(list[0], list[1]);
       } else {
-        cookie = new OtherCookie(list[0], listIngredients);
+        cookie = new OtherCookie(list[0], list[1]);
       }
       cookiesList.push(cookie);
     });
